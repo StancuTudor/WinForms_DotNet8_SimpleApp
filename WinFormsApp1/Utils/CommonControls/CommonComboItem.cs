@@ -1,4 +1,4 @@
-﻿namespace Cargo.Util.CommonControls
+﻿namespace WinFormsApp1.Util.CommonControls
 {
     public class CommonComboItem
     {

@@ -1,6 +1,6 @@
-﻿using Cargo.Util.CommonControls.Interfaces;
+﻿using WinFormsApp1.Util.CommonControls.Interfaces;
 
-namespace CargoBill.Utils.CommonControls.Interfaces
+namespace WinFormsApp1.Utils.CommonControls.Interfaces
 {
     public interface ICommonRichTextBox
     {

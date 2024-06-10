@@ -1,7 +1,7 @@
-﻿using Cargo.Util.CommonControls.Interfaces;
+﻿using WinFormsApp1.Util.CommonControls.Interfaces;
 using System.ComponentModel;
 
-namespace Cargo.Util.CommonControls
+namespace WinFormsApp1.Util.CommonControls
 {
     /// <summary>
     /// Creates a basic wrapper for DataGridView.

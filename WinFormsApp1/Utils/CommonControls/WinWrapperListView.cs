@@ -1,7 +1,7 @@
-﻿using Cargo.Util.CommonControls.Interfaces;
+﻿using WinFormsApp1.Util.CommonControls.Interfaces;
 using static System.Windows.Forms.ListViewItem;
 
-namespace Cargo.Util.CommonControls
+namespace WinFormsApp1.Util.CommonControls
 {
     /// <summary>
     /// Creates a base wrapper for ListView with few properties.

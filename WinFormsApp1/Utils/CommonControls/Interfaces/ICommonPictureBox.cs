@@ -1,4 +1,4 @@
-﻿namespace Cargo.Util.CommonControls.Interfaces
+﻿namespace WinFormsApp1.Util.CommonControls.Interfaces
 {
     public interface ICommonPictureBox
     {
