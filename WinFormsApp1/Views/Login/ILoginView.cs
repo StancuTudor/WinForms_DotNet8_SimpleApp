@@ -11,7 +11,6 @@ namespace WinFormsApp1.Views.Login
         string User { get; set; }
         string Password { get; set; }
         string Error { get; set; }
-        FrmLogin.LoginErrorType ErrorType { get; set; }
         void Close();
     }
     public enum LoginState

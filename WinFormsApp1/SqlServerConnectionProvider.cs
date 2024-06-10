@@ -7,7 +7,7 @@ namespace WinFormsApp1
 {
     public interface ISqlServerConnectionProvider
     {
-        IDbConnection GetDbConnectionAtena();
+        IDbConnection GetDbConnectionMain();
     }
 
     public class SqlServerConnectionProvider : ISqlServerConnectionProvider
@@ -19,7 +19,7 @@ namespace WinFormsApp1
             _options = options.Value;
         }
 
-        public IDbConnection GetDbConnectionAtena()
+        public IDbConnection GetDbConnectionMain()
         {
             return new SqlConnection(_options.DbConnectionMain);
         }

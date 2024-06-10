@@ -8,8 +8,8 @@ namespace WinFormsApp1.Models
 {
     public enum ValidationStatusCode
     {
+        Loading,
         Success,
-        ResetPassword,
         Failed
     }
     public class ValidateUserOut

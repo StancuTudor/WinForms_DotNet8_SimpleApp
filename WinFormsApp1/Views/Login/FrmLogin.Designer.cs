@@ -34,7 +34,7 @@
             lblUser = new Label();
             lblPassword = new Label();
             txtPassword = new TextBox();
-            btnAnulare = new Button();
+            btnCancel = new Button();
             lblError = new Label();
             SuspendLayout();
             // 
@@ -45,7 +45,7 @@
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(75, 25);
             btnLogin.TabIndex = 3;
-            btnLogin.Text = "OK";
+            btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = true;
             btnLogin.Click += btnLogin_Click;
             // 
@@ -62,11 +62,11 @@
             // 
             lblIntorduceti.AutoSize = true;
             lblIntorduceti.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
-            lblIntorduceti.Location = new Point(63, 9);
+            lblIntorduceti.Location = new Point(107, 9);
             lblIntorduceti.Name = "lblIntorduceti";
-            lblIntorduceti.Size = new Size(234, 13);
+            lblIntorduceti.Size = new Size(181, 13);
             lblIntorduceti.TabIndex = 6;
-            lblIntorduceti.Text = "Introduceti numele de utilizator si parola";
+            lblIntorduceti.Text = "Enter username and password.";
             // 
             // lblUser
             // 
@@ -74,9 +74,9 @@
             lblUser.Font = new Font("Microsoft Sans Serif", 8.25F);
             lblUser.Location = new Point(43, 35);
             lblUser.Name = "lblUser";
-            lblUser.Size = new Size(47, 13);
+            lblUser.Size = new Size(55, 13);
             lblUser.TabIndex = 9;
-            lblUser.Text = "Utilizator";
+            lblUser.Text = "Username";
             // 
             // lblPassword
             // 
@@ -84,9 +84,9 @@
             lblPassword.Font = new Font("Microsoft Sans Serif", 8.25F);
             lblPassword.Location = new Point(43, 61);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(37, 13);
+            lblPassword.Size = new Size(53, 13);
             lblPassword.TabIndex = 10;
-            lblPassword.Text = "Parola";
+            lblPassword.Text = "Password";
             // 
             // txtPassword
             // 
@@ -98,16 +98,16 @@
             txtPassword.TabIndex = 2;
             txtPassword.KeyUp += textBox_KeyUp;
             // 
-            // btnAnulare
+            // btnCancel
             // 
-            btnAnulare.Font = new Font("Microsoft Sans Serif", 8.25F);
-            btnAnulare.Location = new Point(186, 90);
-            btnAnulare.Name = "btnAnulare";
-            btnAnulare.Size = new Size(75, 25);
-            btnAnulare.TabIndex = 4;
-            btnAnulare.Text = "Anulare";
-            btnAnulare.UseVisualStyleBackColor = true;
-            btnAnulare.Click += btnAnulare_Click;
+            btnCancel.Font = new Font("Microsoft Sans Serif", 8.25F);
+            btnCancel.Location = new Point(186, 90);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(75, 25);
+            btnCancel.TabIndex = 4;
+            btnCancel.Text = "Cancel";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnAnulare_Click;
             // 
             // lblError
             // 
@@ -125,7 +125,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(375, 138);
             Controls.Add(lblError);
-            Controls.Add(btnAnulare);
+            Controls.Add(btnCancel);
             Controls.Add(txtPassword);
             Controls.Add(lblPassword);
             Controls.Add(lblUser);
@@ -152,7 +152,7 @@
         private Label lblUser;
         private Label lblPassword;
         private TextBox txtPassword;
-        private Button btnAnulare;
+        private Button btnCancel;
         private Label lblError;
     }
 }

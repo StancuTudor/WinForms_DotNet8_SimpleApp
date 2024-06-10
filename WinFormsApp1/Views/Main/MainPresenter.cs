@@ -24,7 +24,7 @@ namespace WinFormsApp1.Views.Main
         }
         public async Task Test()
         {
-
+            _view.Text1.Text = await _mainService.Test();
         }
     }
 }

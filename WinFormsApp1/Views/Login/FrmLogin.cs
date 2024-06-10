@@ -30,14 +30,6 @@ namespace WinFormsApp1.Views
             get { return this.lblError.Text; }
             set { this.lblError.Text = value; }
         }
-        public enum LoginErrorType
-        {
-            None,
-            UserName,
-            Password,
-            Other
-        }
-        public LoginErrorType ErrorType { get; set; }
 
         public FrmLogin(LoginPresenter presenter)
         {
@@ -49,7 +41,7 @@ namespace WinFormsApp1.Views
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Logare();
+            Login();
         }
 
         private void btnAnulare_Click(object sender, EventArgs e)
@@ -61,7 +53,7 @@ namespace WinFormsApp1.Views
         {
             if (e.KeyData == Keys.Enter)
             {
-                Logare();
+                Login();
             }
             if (e.KeyData == Keys.Escape)
             {
@@ -69,18 +61,9 @@ namespace WinFormsApp1.Views
             }
         }
 
-        private async void Logare()
+        private async void Login()
         {
-            await Presenter.Logare();
-
-            if (ErrorType == LoginErrorType.None)
-                return;
-            if (ErrorType == LoginErrorType.UserName)
-                ActiveControl = txtUsername;
-            if (ErrorType == LoginErrorType.Password)
-                ActiveControl = txtPassword;
-            if (ErrorType == LoginErrorType.Other)
-                ActiveControl = txtUsername;
+            await Presenter.Login();
         }
     }
 }

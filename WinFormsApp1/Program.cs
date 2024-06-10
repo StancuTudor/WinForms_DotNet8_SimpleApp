@@ -9,6 +9,7 @@ using WinFormsApp1.Utils;
 using WinFormsApp1.Services;
 using WinFormsApp1.Views.Login;
 using WinFormsApp1.Views.Main;
+using WinFormsApp1.Repositories;
 
 namespace WinFormsApp1
 {
@@ -41,9 +42,15 @@ namespace WinFormsApp1
             builder.Logging.AddNLog();
 
             builder.Services.AddHostedService<ApplicationWorker>();
-
             builder.Services.AddSingleton<IViewFactory, ViewFactory>();
+            builder.Services.AddTransient<ISqlServerConnectionProvider, SqlServerConnectionProvider>();
+
+            builder.Services.AddSingleton<ILoginService, LoginService>();
+            builder.Services.AddSingleton<ILoginRepository, LoginRepository>();
+
             builder.Services.AddSingleton<IMainService, MainService>();
+            builder.Services.AddSingleton<IMainRepository, MainRepository>();
+
             builder.Services.AddSingleton<ICurrentUserService, CurrentUserService>();
 
             builder.Services.AddTransient<LoginPresenter>();

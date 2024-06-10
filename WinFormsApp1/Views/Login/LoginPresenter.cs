@@ -5,10 +5,10 @@ using Refit;
 
 namespace WinFormsApp1.Views.Login
 {
-    public class LoginPresenter(IMainService mainService, ICurrentUserService currentUserService)
+    public class LoginPresenter(ILoginService loginService, ICurrentUserService currentUserService)
     {
         private ILoginView _view;
-        private readonly IMainService _mainSevice = mainService;
+        private readonly ILoginService _loginSevice = loginService;
         private readonly ICurrentUserService _currentUserService = currentUserService;
 
         public LoginState State { get; set; } = LoginState.NotAutorized;
@@ -17,62 +17,52 @@ namespace WinFormsApp1.Views.Login
         {
             _view = view;
         }
-        public async Task Logare()
+        public async Task Login()
         {
-            _view.ErrorType = FrmLogin.LoginErrorType.None;
             try
             {
-                ValidareForm();
-                var result = await GetStatusLogare(_view.User, _view.Password);
-                ValidareResult(result);
+                ValidateForm();
+                var result = await GetStatusLogin(_view.User, _view.Password);
+                ValidateResult(result);
 
                 CloseAutorized();
             }
             catch (ValidationException ex)
             {
-                if (ex.Message.ToUpper().Contains("UTILIZATOR"))
-                    _view.ErrorType = FrmLogin.LoginErrorType.UserName;
-                else if (ex.Message.ToUpper().Contains("PAROLA"))
-                    _view.ErrorType = FrmLogin.LoginErrorType.Password;
-                else
-                    _view.ErrorType = FrmLogin.LoginErrorType.Other;
                 _view.Error = ex.Message;
             }
             catch (Exception ex)
             {
-                _view.ErrorType = FrmLogin.LoginErrorType.Other;
                 _view.Error = ex.Message;
             }
         }
-        private void ValidareForm()
+        private void ValidateForm()
         {
             _view.User = _view.User.Trim();
             _view.Password = _view.Password.Trim();
 
             if (string.IsNullOrEmpty(_view.User))
             {
-                _view.ErrorType = FrmLogin.LoginErrorType.UserName;
-                throw new ValidationException("Completati numele de utilizator.");
+                throw new ValidationException("Username can't be empty.");
             }
             if (string.IsNullOrEmpty(_view.Password))
             {
-                _view.ErrorType = FrmLogin.LoginErrorType.Password;
-                throw new ValidationException("Completati parola.");
+                throw new ValidationException("Password can't be empty.");
             }
         }
-        private void ValidareResult(ValidateUserOut result)
+        private void ValidateResult(ValidateUserOut result)
         {
             if (result.StatusCode != ValidationStatusCode.Success)
             {
                 throw new ValidationException(result.Result);
             }
         }
-        private async Task<ValidateUserOut> GetStatusLogare(string user, string password)
+        private async Task<ValidateUserOut> GetStatusLogin(string user, string password)
         {
             LoginOut loginOut = new LoginOut();
             try
             {
-                loginOut = await _mainSevice.Login(user, password);
+                loginOut = await _loginSevice.Login(user, password);
 
                 if (loginOut.UserData.StatusCode == ValidationStatusCode.Success)
                 {
